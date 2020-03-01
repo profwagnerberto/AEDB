@@ -1,7 +1,7 @@
 # AEDB
 <h2>Recursos para a disciplina de Algoritmos e Estruturas de Dados - Blended</h2>
 <h3>Os roteiros de aula que usam tais recursos podem ser encontrados em:</h3>
-<h4><a href="profwagnerberto.gitbook.io/aedb">profwagnerberto.gitbook.io/aedb</a></h4>
+<h4><a href="https://profwagnerberto.gitbook.io/aedb" target="BLANK">profwagnerberto.gitbook.io/aedb</a></h4>
 
 <blockquote>
 Para acessar o Repl.it clonando esse repositório, clique no botão abaixo:<br>
