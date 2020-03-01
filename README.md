@@ -5,9 +5,9 @@ Recursos para a disciplina de Algoritmos e Estruturas de Dados - Blended
 Para acessar o Repl.it clonando esse repositório, clique no botão abaixo:<br>
 Atenção: O repositório será clonado numa nova pasta toda vez que clicar no botão.
 </blockquote>
-[![Run on Repl.it](https://repl.it/badge/github/profwagnerberto/AEDB)](https://repl.it/github/profwagnerberto/AEDB<br>
 
-<br>
+[![Run on Repl.it](https://repl.it/badge/github/profwagnerberto/AEDB)](https://repl.it/github/profwagnerberto/AEDB)
+
 <blockquote>
 *Atenção:<br>
 -No Repl.it, antes de executar um arquivo main.c, é necessário:<br>
