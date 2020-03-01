@@ -1,5 +1,6 @@
 # AEDB
-<h1>Recursos para a disciplina de Algoritmos e Estruturas de Dados - Blended</h1>
+<h2>Recursos para a disciplina de Algoritmos e Estruturas de Dados - Blended</h2>
+<h3>Os roteiros de aula que usam tais recursos podem ser encontrados em:</h3>
 
 <blockquote>
 Para acessar o Repl.it clonando esse repositório, clique no botão abaixo:<br>
