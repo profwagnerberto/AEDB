@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void) {
+  int opcao;
+  char titulo[20];
+
+  do{
+    printf("============================== \n");
+    printf("MENU \n");
+    printf("---- \n");
+    printf("1 - Remover um livro da prateleira \n");
+    printf("9 - Encerrar \n");
+    printf("---- \n");
+    printf("Informe a opção desejada: ");
+    scanf("%d",&opcao);
+
+    switch(opcao){
+      case 1:
+        printf("============================== \n");
+        printf("\t Qual o Título do livro? ");
+        scanf("%s",titulo);
+        printf(" * \n * \n * \n");
+        break;
+      case 9:
+        printf("============================== \n");
+        printf("\t Encerrando... \n");
+        printf(" * \n * \n * \n");
+        break;
+      default:
+        printf("\t Erro: Opção inválida. \n");
+        printf(" * \n * \n * \n");
+        break;
+    }
+  }while(opcao!=9);
+  
+  return 0;
+}

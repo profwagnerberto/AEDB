@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main(void) {
+  int opcao;
+  do{
+    printf("============================== \n");
+    printf("MENU \n");
+    printf("---- \n");
+    printf("9 - Encerrar \n");
+    printf("---- \n");
+    printf("Informe a opção desejada: ");
+    scanf("%d",&opcao);
+
+    switch(opcao){
+      case 9:
+        printf("============================== \n");
+        printf("\t Encerrando... \n");
+        printf(" * \n * \n * \n");
+        break;
+      default:
+        printf("\t Erro: Opção inválida. \n");
+        printf(" * \n * \n * \n");
+        break;
+    }
+  }while(opcao!=9);
+  
+  return 0;
+}
