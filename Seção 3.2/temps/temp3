@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+int main() {
+  int Idade[] = {21,25,18,27,30,32,24,22,19,23,20,28,29,34,31,26,35,33};
+  char Nome[][10] = {"Fíneas","Cleuza","Jéssica","Pedro","Queila","Onírio","Almiro","Lauro","Nelson","Braulio","Darci","Klaus","Erico","Helena","Reinz","Irene","Miriam","Galo"};
+  int opcao,i;
+  int tamanho = sizeof(Idade)/sizeof(int);
+  float soma,media;
+  int idadeABuscar;
+  do{
+    printf("\t MENU \n");
+    printf("\t ---- \n");
+    printf("\t 1-Calcular a média aritmética simples das idades \n");
+    printf("\t 2-Ler a idade a Buscar \n");
+    printf("\t 3-Buscar na tabela sem hash \n");
+    printf("\t 9-Encerrar \n");
+    printf("\t ---- \n");
+    printf("\t Informe a opção desejada: ");
+    scanf("%d",&opcao);
+
+    switch(opcao){
+      case 1:
+        soma = 0;
+        for(i=0;i<tamanho;i++)
+          soma += Idade[i];
+        media = soma / tamanho;
+        printf(" * \n Média: %f \n",media);
+        printf(" * \n * \n * \n");
+        break;
+      case 2:
+        printf(" * \n Informe a idade a Buscar: ");
+        scanf("%d",&idadeABuscar);
+        printf(" * \n * \n * \n");
+        break;
+      case 3:
+        i = 0;
+        while(i<tamanho && Idade[i]!=idadeABuscar)
+          i++;
+        if(Idade[i]==idadeABuscar)
+          printf(" * \n Idade encontrada depois de %d iterações. \n",++i);
+        else
+          printf(" * \n Idade NÃO encontrada. \n");
+        printf(" * \n * \n * \n");
+        break;
+      case 9:
+        printf("Encerrando... \n");
+        printf(" * \n * \n * \n");
+        break;
+      default:
+        printf("Erro: Opção inválida. \n");
+        printf(" * \n * \n * \n");
+        break;
+    }
+  }while(opcao!=9);
+  return 0;
+}

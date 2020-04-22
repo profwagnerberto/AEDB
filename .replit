@@ -1,4 +1,4 @@
 language = "c"
 
-run = "cd 'Seção 2.2' && clang-7 -pthread -lm -o main main.c && ./main"
+run = "cd 'Seção 3.2' && clang-7 -pthread -lm -o main main.c && ./main"
   

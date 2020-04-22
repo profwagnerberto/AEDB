@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int main() {
+  int opcao;
+  int idadeABuscar;
+  int i;
+  char dados[] = "21,Fíneas";
+
+
+  int Idade[] = {21};
+  char Nome[][10] = {" "};
+  int tamanho = sizeof(Idade)/sizeof(int);
+  do{
+    printf("\t MENU \n");
+    printf("\t ---- \n");
+    printf("\t 1-Ler a idade a Buscar \n");
+    printf("\t 2-Buscar na tabela sem hash \n");
+    printf("\t 9-Encerrar \n");
+    printf("\t ---- \n");
+    printf("\t Informe a opção desejada: ");
+    scanf("%d",&opcao);
+    switch(opcao){
+      case 1:
+        printf(" * \n Informe a idade a Buscar: ");
+        scanf("%d",&idadeABuscar);
+        printf(" * \n * \n * \n");
+        break;
+      case 2:
+        i = 0;
+        while(i<tamanho && Idade[i]!=idadeABuscar)
+          i++;
+        if(Idade[i]==idadeABuscar)
+          printf(" * \n A idade do(a) %s, foi encontrada depois de %d iterações. \n",Nome[i],i+1);
+        else
+          printf(" * \n Idade NÃO encontrada. \n");
+        printf(" * \n * \n * \n");
+        break;
+      case 9:
+        printf("Encerrando... \n");
+        printf(" * \n * \n * \n");
+        break;
+      default:
+        printf("Erro: Opção inválida. \n");
+        printf(" * \n * \n * \n");
+        break;
+    }
+  }while(opcao!=9);
+  return 0;
+}

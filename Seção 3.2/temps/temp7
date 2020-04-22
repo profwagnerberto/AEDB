@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(){
+  FILE *fl;
+  int caracter;
+  int tamanho = 1000;
+  char temp[tamanho];
+  int contaCarac;
+  char dadosNome[30][20];
+  int contaNome;
+  fl = fopen("dadosNome.txt", "r");
+  contaCarac=0;
+  temp[0]='\0';
+  contaNome=0;
+  while((caracter = fgetc(fl)) != EOF){
+    if(caracter!=','){
+      temp[contaCarac]=caracter;
+      contaCarac++;
+      printf("temp: %s \n",temp);
+    }else{
+      temp[contaCarac]='\0';
+      strcpy(dadosNome[contaNome],temp);
+      printf("dadosIdade[%d]: %s \n",contaNome,dadosNome[contaNome]);
+      contaCarac=0;
+      temp[0]='\0';
+      contaNome++;
+    }
+  }        
+  temp[contaCarac]='\0';
+  strcpy(dadosNome[contaNome],temp);
+  printf("dadosIdade[%d]: %s \n",contaNome,dadosNome[contaNome]);
+  fclose(fl);
+  return EXIT_SUCCESS;
+}
+/*
+  int alternador=1;
+  int tamanho = 1000;
+  char temp[tamanho];
+  printf("%s \n",temp);
+  printf("%c \n",temp[0]);
+  strcpy(temp,"");
+  int idades1[20];
+  int idades2[20];
+  while((caracter = fgetc(fl)) != EOF){
+    temp+= caracter;
+  }        
+    if(c==','){
+      idades1[]
+      if(alternador==1){
+        alternador=2;
+      }else if(alternador==2){
+        alternador=1;
+      }
+    }else{
+      temp+= caracter;
+    }        
+*/

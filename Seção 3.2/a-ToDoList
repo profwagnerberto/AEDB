@@ -1,0 +1,115 @@
+Lista de tarefas FEITAS
+
+1.Criar um menu de opções numéricas inteiras.
+1.1.Criar a opção "9-Encerrar".
+1.2.Implementar a opção encerrar.
+1.3.Implementar a opção "inválida".
+
+2.Criar a opção "1-Carregar a tabela com a idade e o nome dos alunos da turma".
+2.1.Declarar vetores de dados de entrada.
+2.2.Preencher vetores de dados de entrada.
+2.3.registrar o tamanho do vetor.
+
+3.Criar a opção "2-Imprimir tabelas".
+3.1.Criar um menu de opções numéricas inteiras.
+3.1.1.Criar a opção "9-Voltar ao menu anterior".
+3.1.1.1.Implementar a opção 9.
+3.1.2.Implementar a opção "inválida".
+3.1.3.Criar a opção "1-... da tabela com a idade e o nome dos alunos".
+3.1.3.1.Percorrer a tabela de idades de alunos.
+3.1.3.2.Mostrar o valor da idade e do nome no índice respectivo.
+
+4.Criar a opção "3-Buscar nas tabelas".
+4.1.Criar um menu de opções numéricas inteiras.
+4.1.1.Criar a opção "9-Voltar ao menu anterior".
+4.1.1.1.Implementar a opção 9.
+4.1.2.Implementar a opção "inválida".
+4.1.3.Criar a opção "1-... na tabela com a idade e o nome dos alunos".
+4.1.3.1.Ler a idade a Buscar.
+4.1.3.2.Varrer o vetor de idades comparando com a idade a buscar.
+4.1.3.3.Ao encontrar, mostrar mensagem juntamente com o nome do aluno respectivo e a quantidade de iterações realizadas.
+4.1.3.4.Não encontrando, mostrar mensagem.
+
+5.Criar a opção "4-Calcular a média aritmética simples das idades".
+5.1.Fazer a chamada de uma função de cálculo da média das idades, passando o tamanho do vetor de idades e o próprio vetor de idades (item 2).
+5.1.1.Armazenar numa variável a média retornada pela chamada da função.
+5.2.Criar uma função de cálculo da média das idades.
+5.2.1.Receber o tamanho do vetor de idades e o próprio vetor de idades (item 2).
+5.2.2.Calcular a média das idades.
+5.2.3.Retornar a média calculada.
+
+6.Criar a opção "5-Obter endereço da tabela a armazenar/buscar".
+6.1.Criar um menu de opções numéricas inteiras.
+6.1.1.Criar a opção "9-Voltar ao menu anterior".
+6.1.1.1.Implementar a opção 9.
+6.1.2.Implementar a opção "inválida".
+6.1.3.Criar a opção "2-... na tabela com hash 2 (Forma da função de espalhamento: Cálculo de endereços)".
+6.1.3.1.Ler a idade a Calcular.
+6.1.3.2.Calcular a média das idades.
+6.1.3.3.Fazer a chamada de uma função de espalhamento, passando a "Idade a calcular" e a "Média de idades".
+6.1.3.4.Armazenar numa variável o endereço retornado pela chamada da função.
+6.1.4.Criar uma função de espalhamento na forma de Cálculo de endereços.
+6.1.4.1.Receber a "Idade a buscar" (item 3) e a "Média de idades" (item 5).
+6.1.4.2.Armazenar 1 ou 2 no endereço calculado, dependendo das regras.
+6.1.4.3.Retornar o endereço calculado.
+6.1.5.Mostrar o endereço.
+
+7.Criar a opção "6-Armazenar dados da tabela de idade e nome na Tabela de Espalhamento com hash 2".
+7.1.Calcular a média das idades.
+7.2.Percorrer a tabela de idades e nomes de alunos.
+7.2.1.Fazer a chamada de uma função de espalhamento, passando a "Idade a buscar" e a "Média de idades".
+7.2.1.Armazenar cada idade no vetor adequado.
+7.2.2.Armazenar o tamanho de cada vetor.
+
+8.Na opção "2-Imprimir tabelas".
+8.1.Criar a opção "2-... na tabela com hash 2 ".
+8.1.1.Percorrer o vetor idades1.
+8.1.2.Mostrar o valor da idade.
+8.2.1.Percorrer o vetor idades2.
+8.2.2.Mostrar o valor da idade.
+
+9.Na opção "3-Buscar nas tabelas".
+9.1.Criar a opção "2-... ... na tabela com hash 2 ".
+9.1.1.Ler a idade a Buscar.
+9.1.2.Calcular a média das idades.
+9.1.3.Calcular o endereço de armazenamento da idade.
+9.1.4.Varrer o vetor de idades adequado (1 ou 2) comparando com a idade a buscar.
+9.1.4.1.Ao encontrar, mostrar mensagem juntamente com o nome do vetor (1 ou 2) respectivo e a quantidade de iterações realizadas.
+9.1.4.2.Não encontrando, mostrar mensagem.
+
+10.Na opção "5-Obter endereço da tabela a armazenar/buscar".
+10.1.Criar a opção "3-... na tabela com hash 3 (Forma da função de espalhamento: Divisão)".
+10.1.1.Ler a idade a Calcular.
+10.1.2.Fazer a chamada de uma função de espalhamento, passando a "Idade a calcular".
+10.1.3.Armazenar numa variável o endereço retornado pela chamada da função.
+10.1.4.Criar uma função de espalhamento na forma de Divisão.
+10.1.4.1.Receber a "Idade a calcular".
+10.1.4.2.Calcular o resto da divisão (módulo) da idade por 3 (Estratégia de hash)
+10.1.4.3.Retornar resultado dessa divisão.
+10.1.5.Mostrar o endereço.
+
+
+
+
+
+
+
+4.Criar a opção "3-Buscar nas tabelas".
+4.1.Criar um menu de opções numéricas inteiras.
+4.1.1.Criar a opção "9-Voltar ao menu anterior".
+4.1.1.1.Implementar a opção 9.
+4.1.2.Implementar a opção "inválida".
+4.1.3.Criar a opção "1-... na tabela com a idade e o nome dos alunos".
+4.1.3.1.Ler a idade a Buscar.
+4.1.3.2.Calcular a média das idades.
+4.1.3.3.Fazer a chamada de uma função de espalhamento, passando a "Idade a buscar" e a "Média de idades".
+4.1.3.4.Dependendo do retorno da função
+4.1.3.5.Varrer o vetor de idades1 ou idades2 comparando com a idade a buscar.
+4.1.3.6.Ao encontrar, mostrar mensagem juntamente com o nome do vetor respectivo e a quantidade de iterações realizadas.
+4.1.3.7.Não encontrando, mostrar mensagem.
+
+
+
+
+
+5-Obter endereço da tabela (Forma da função de espalhamento: Cálculo de endereços)

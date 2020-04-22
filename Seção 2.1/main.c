@@ -39,7 +39,6 @@ void ordenar (NodoLivro* l){
   }
 }
 
-/*
 void imprimir (NodoLivro* l, int ordem) {
   NodoLivro* p;
   printf("Elementos:\n");
@@ -54,7 +53,6 @@ void imprimir (NodoLivro* l, int ordem) {
     }
   printf("NULL\n");
 }
-*/
 
 int main(void) {
   int opcao;
@@ -80,7 +78,7 @@ int main(void) {
         scanf("%s",titulo);
         lista = inserir(lista, titulo);
         ordenar(lista);
-//        imprimir(lista, 0);
+        imprimir(lista, 0);
         printf(" * \n * \n * \n");
         break;
       case 9:
