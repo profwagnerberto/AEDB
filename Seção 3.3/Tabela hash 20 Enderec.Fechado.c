@@ -131,7 +131,7 @@ int main() {
   Aluno umAluno;
   int endereco;
   int i;
-  int tamanhoTabela = 20;
+  int tamanhoTabela = 10;
   int tabelaHashIndice[tamanhoTabela];
   Aluno* tabelaHashDados[tamanhoTabela];
   Aluno* alunoRetornado;
