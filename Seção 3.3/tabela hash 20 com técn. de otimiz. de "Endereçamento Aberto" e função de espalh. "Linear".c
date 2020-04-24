@@ -67,11 +67,11 @@ struct aluno {
 
 typedef struct aluno Aluno;
 
+// c-Calcular, b-Buscar, i-Inserir, r-Remover                
 int FEDivisaoLinear(int ParamIdade,
               int ParamTamanhoTabela,
               int *ParamTabelaHashIndice,
               char ParamOperacao){
-// c-Calcular, b-Buscar, i-Inserir, r-Remover                
   int restoDivisaoInteira;
   int enderecoCalculado;
   int enderecoLivre;
@@ -165,7 +165,10 @@ int main() {
     tabelaHashIndice[i] = -1;
     tabelaHashDados[i] = inicializar();
   }
+  int continuar;
   do{
+    for(i=0;i<30;i++)
+      printf("\n");
     printf("\t MENU \n");
     printf("\t ---- \n");
     printf("\t 1-Carregar dados da idade e do nome dos alunos da turma \n");
@@ -266,6 +269,8 @@ int main() {
         printf(" * \n * \n * \n");
         break;
     }
+    printf("*** Digite 0 + <ENTER> para continuar...");
+    scanf("%d",&continuar);
   }while(opcao!=9);
   return 0;
 }
