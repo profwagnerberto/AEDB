@@ -65,7 +65,12 @@ int main() {
   int dadosIdade[20];
   int tamanhoIdade;
   int impressao;
+  int continuar;
   do{
+    for(i=0;i<30;i++)
+      printf("\n");
+    printf("\t Fichamento de alunos - Sem hash \n");
+    printf("\t =============================== \n");
     printf("\t MENU \n");
     printf("\t ---- \n");
     printf("\t 1-Armazenar dados da idade e do nome dos alunos da turma numa tabela Sem Hash\n");
@@ -109,6 +114,8 @@ int main() {
         printf(" * \n * \n * \n");
         break;
     }
+    printf("*** Digite 0 + <ENTER> para continuar...");
+    scanf("%d",&continuar);
   }while(opcao!=9);
   return 0;
 }
