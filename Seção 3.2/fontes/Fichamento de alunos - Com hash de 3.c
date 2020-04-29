@@ -29,10 +29,20 @@ int CarregarIdades(int *paramDadosIdade){
   return ++contaIdade;
 }
 
-int FEDivisao(int ParamIdade){
-  int restoDivisaoInteira;
-  restoDivisaoInteira = ParamIdade % 3;
-  return restoDivisaoInteira;
+float CalcularMediaIdades(int ParamTamanhoIdade,int *ParamDadosIdade){
+  float soma;
+  int i;
+  soma = 0;
+  for(i=0;i<ParamTamanhoIdade;i++)
+    soma += ParamDadosIdade[i];
+  return soma / ParamTamanhoIdade;
+}
+
+int FECalculoDeEnderecos(int ParamIdadeABuscar, float ParamMedia){
+  if(ParamIdadeABuscar < ParamMedia)
+    return 0;
+  else
+    return 1;
 }
 
 int main() {
@@ -42,13 +52,20 @@ int main() {
   int dadosIdade[20];
   int tamanhoIdade;
   int endereco;
-  int tamanhoColuna[3];
-  int tabelaHash[10][3];
+  float media;
+  int tamanhoColuna[2];
+  int tabelaHash[10][2];
+  int continuar;
   do{
+    for(i=0;i<30;i++)
+      printf("\n");
+    printf("\t Fichamento de alunos - Com hash de 3 \n");
+    printf("\t ==================================== \n");
     printf("\t MENU \n");
     printf("\t ---- \n");
     printf("\t 1-Carregar dados da idade e do nome dos alunos da turma \n");
-    printf("\t 3-Obter endereço da tabela através da função de espalhamento na forma de Divisão \n");
+    printf("\t 2-Calcular a média das idades \n");
+    printf("\t 3-Obter endereço da tabela através da função de espalhamento na forma de Cálculo de Endereços \n");
     printf("\t 4-Armazenar dados da tabela de idade e nome na Tabela de Espalhamento \n");
     printf("\t 5-Imprimir tabela \n");
     printf("\t 6-Buscar na tabela\n");
@@ -62,17 +79,24 @@ int main() {
         printf(" * \n Dados carregados. \n");
         printf(" * \n * \n * \n");
         break;
+      case 2:
+        media = CalcularMediaIdades(tamanhoIdade,dadosIdade);
+        printf(" * \n Média: %.2f \n",media);
+        printf(" * \n * \n * \n");
+        break;
       case 3:
         printf(" * \n Informe a idade a Calcular: ");
         scanf("%d",&idade);
-        endereco = FEDivisao(idade);
+        media = CalcularMediaIdades(tamanhoIdade,dadosIdade);
+        endereco = FECalculoDeEnderecos(idade,media);
         printf(" * \n Endereço Calculado: %d \n",endereco);
         printf(" * \n * \n * \n");
         break;
       case 4:
-        tamanhoColuna[0] = tamanhoColuna[1] = tamanhoColuna[2] = 0;
+        tamanhoColuna[0] = tamanhoColuna[1] = 0;
+        media = CalcularMediaIdades(tamanhoIdade,dadosIdade);
         for(i=0;i<tamanhoIdade;i++){
-          endereco = FEDivisao(dadosIdade[i]);
+          endereco = FECalculoDeEnderecos(dadosIdade[i],media);
           tabelaHash[tamanhoColuna[endereco]][endereco] = dadosIdade[i];
           tamanhoColuna[endereco]++;
         }
@@ -80,16 +104,14 @@ int main() {
         printf(" * \n * \n * \n");
         break;
       case 5:
-        printf("índice \t idades1 \t idades2 \t idades3 \n");
-        printf("======================================== \n");
+        printf("índice \t idades1 \t idades2 \n");
+        printf("============================== \n");
         for(i=0;i<10;i++){
           printf("\t %d \t\t",i);
           if(i<tamanhoColuna[0])
             printf("%d \t\t\t",tabelaHash[i][0]);
           if(i<tamanhoColuna[1])
-            printf("%d \t\t\t",tabelaHash[i][1]);
-          if(i<tamanhoColuna[2])
-            printf("%d ",tabelaHash[i][2]);
+            printf("%d ",tabelaHash[i][1]);
           printf("\n");
         }
         printf(" * \n * \n * \n");
@@ -97,7 +119,8 @@ int main() {
       case 6:
         printf(" * \n Informe a idade a Buscar: ");
         scanf("%d",&idade);
-        endereco = FEDivisao(idade);
+        media = CalcularMediaIdades(tamanhoIdade,dadosIdade);
+        endereco = FECalculoDeEnderecos(idade,media);
         i = 0;
         while(i<tamanhoColuna[endereco] && tabelaHash[i][endereco]!=idade)
           i++;
@@ -116,6 +139,8 @@ int main() {
         printf(" * \n * \n * \n");
         break;
     }
+    printf("*** Digite 0 + <ENTER> para continuar...");
+    scanf("%d",&continuar);
   }while(opcao!=9);
   return 0;
 }
