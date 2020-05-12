@@ -1,4 +1,7 @@
-language = "c"
+#language = "c"
 
-run = "cd 'Seção 3.3' && clang-7 -pthread -lm -o main main.c && ./main"
-  
+language = "cpp"
+
+#run = "cd 'Seção 3.3' && clang-7 -pthread -lm -o main main.c && ./main"
+
+run = "cd 'Seção 4.1'"
