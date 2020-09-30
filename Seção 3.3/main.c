@@ -67,15 +67,10 @@ struct aluno {
 
 typedef struct aluno Aluno;
 
-int FEDivisao(int ParamIdade,
-              int ParamTamanhoTabela){
+int FEDivisao(int ParamIdade,int ParamTamanhoTabela){
   int restoDivisaoInteira;
-  int enderecoCalculado;
-
   restoDivisaoInteira = ParamIdade % ParamTamanhoTabela;
-  enderecoCalculado = restoDivisaoInteira;
- 
-  return enderecoCalculado;
+  return restoDivisaoInteira;
 }
 
 Aluno* inicializar (void) {
@@ -131,14 +126,9 @@ int main() {
   Aluno umAluno;
   int endereco;
   int i;
-  int tamanhoTabela = 20;
-  int tabelaHashIndice[tamanhoTabela];
-  Aluno* tabelaHashDados[tamanhoTabela];
+  int tamanhoTabela = 3;
+  Aluno* tabelaHash[tamanhoTabela];
   Aluno* alunoRetornado;
-  for(i=0;i<tamanhoTabela;i++){
-    tabelaHashIndice[i] = -1;
-    tabelaHashDados[i] = inicializar();
-  }
   do{
     printf("\t MENU \n");
     printf("\t ---- \n");
@@ -168,23 +158,22 @@ int main() {
         printf(" * \n * \n * \n");
         break;
       case 4:
+        for(i=0;i<tamanhoTabela;i++)
+          tabelaHash[i] = inicializar();
         for(i=0;i<tamanhoIdade;i++){
+          endereco = FEDivisao(dadosIdade[i],tamanhoTabela);
           umAluno.idade = dadosIdade[i];
           strcpy(umAluno.primeiroNome, dadosNome[i]);
-          endereco = FEDivisao(umAluno.idade,tamanhoTabela);
-          tabelaHashIndice[endereco] = umAluno.idade;
-          tabelaHashDados[endereco] = 
-            inserir(tabelaHashDados[endereco],umAluno);
+          tabelaHash[endereco] = inserir(tabelaHash[endereco],umAluno);
         }
         printf(" * \n Dados armazenados na Tabela de Espalhamento \n");
         printf(" * \n * \n * \n");
         break;
       case 5:
         for(i=0;i<tamanhoTabela;i++){
-          printf("Endereço \t Chave \t Lista \n");
-          printf("========================== \n");
-          printf("|%6d| \t |%3d| \t |",i,tabelaHashIndice[i]);
-          imprimir(tabelaHashDados[i]);
+          printf("idades%d \n",i+1);
+          printf("======== \n");
+          imprimir(tabelaHash[i]);
           printf("\n");
         }
         printf(" * \n * \n * \n");
@@ -193,39 +182,28 @@ int main() {
         printf(" * \n Informe a idade a Buscar: ");
         scanf("%d",&umAluno.idade);
         endereco = FEDivisao(umAluno.idade,tamanhoTabela);
-        if(tabelaHashIndice[endereco] == umAluno.idade){
-          printf(" * \n Idade encontrada no endereço %d da Tabela de Espalhamento. \n",endereco);
-        }else
+        alunoRetornado = buscar(tabelaHash[endereco],umAluno);
+        if (alunoRetornado == NULL) {
           printf(" * \n Idade NÃO encontrada. \n");
+        } else {
+          printf(" * \n A idade do aluno %s foi encontrada no vetor idades%d. \n",alunoRetornado->primeiroNome,endereco+1);
+        }
         printf(" * \n * \n * \n");
         break;
       case 7:
         printf(" * \n Informe a idade do aluno: ");
         scanf("%d",&umAluno.idade);
-        fflush(stdin);
-        printf(" * \n Informe o nome do aluno: ");
-        scanf("%s",umAluno.primeiroNome);
         endereco = FEDivisao(umAluno.idade,tamanhoTabela);
-        if(tabelaHashIndice[endereco] == -1){
-          tabelaHashIndice[endereco] = umAluno.idade;
-          tabelaHashDados[endereco] = 
-            inserir(tabelaHashDados[endereco],umAluno);
-          printf(" * \n Aluno inserido no endereço %d da Tabela de Espalhamento. \n",endereco);
-        }else
-          printf(" * \n Esta idade já está armazenada. \n");
+        tabelaHash[endereco] = inserir(tabelaHash[endereco],umAluno);
+        printf(" * \n Aluno inserido na Tabela de Espalhamento idades%d \n",endereco);
         printf(" * \n * \n * \n");
         break;
       case 8:
         printf(" * \n Informe a idade do aluno: ");
         scanf("%d",&umAluno.idade);
         endereco = FEDivisao(umAluno.idade,tamanhoTabela);
-        if(tabelaHashIndice[endereco] == umAluno.idade){
-          tabelaHashIndice[endereco] = -1;
-          tabelaHashDados[endereco] = 
-            remover(tabelaHashDados[endereco],umAluno);
-          printf(" * \n Aluno removido do endereço %d da Tabela de Espalhamento. \n",endereco);
-        }else
-          printf(" * \n Esta idade não está armazenada. \n");
+        tabelaHash[endereco] = remover(tabelaHash[endereco],umAluno);
+        printf(" * \n Aluno removido na Tabela de Espalhamento idades%d \n",endereco);
         printf(" * \n * \n * \n");
         break;
       case 9:

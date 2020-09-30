@@ -30,7 +30,7 @@ void ordenar (NodoLivro* l){
   char v[20];
   for (p = l; p != NULL; p = p -> prox) {
     for (aux = p -> prox; aux != NULL; aux = aux -> prox) {
-      if ( strcmp(p -> titulo, aux -> titulo) == 1 ) {
+      if ( strcmp(p -> titulo, aux -> titulo) > 0 ) {
         strcpy(v, p -> titulo);
         strcpy(p -> titulo, aux -> titulo);
         strcpy(aux -> titulo, v);
