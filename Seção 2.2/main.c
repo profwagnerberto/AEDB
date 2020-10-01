@@ -31,7 +31,7 @@ void ordenar (NodoLivro* l){
   char v[20];
   for (p = l; p != NULL; p = p -> prox) {
     for (aux = p -> prox; aux != NULL; aux = aux -> prox) {
-      if ( strcmp(p -> titulo, aux -> titulo) == 1 ) {
+      if ( strcmp(p -> titulo, aux -> titulo) > 0 ) {
         strcpy(v, p -> titulo);
         strcpy(p -> titulo, aux -> titulo);
         strcpy(aux -> titulo, v);
@@ -40,7 +40,6 @@ void ordenar (NodoLivro* l){
   }
 }
 
-/*
 void imprimir (NodoLivro* l, int ordem) {
   NodoLivro* p;
   printf("Elementos:\n");
@@ -55,7 +54,6 @@ void imprimir (NodoLivro* l, int ordem) {
     }
   printf("NULL\n");
 }
-*/
 
 struct pilha {
   int topo;
@@ -109,9 +107,11 @@ int main(void) {
   NodoLivro* p;
   char primLetra;
   Pilha* pilhaA;
+  Pilha* pilhaB;
 
   lista = inicializarLista();
   pilhaA = inicializarPilha(pilhaA, 100);
+  pilhaB = inicializarPilha(pilhaB, 100);
 
   do{
     printf("============================== \n");
@@ -134,7 +134,7 @@ int main(void) {
         printf("\t Ordenando lista... \n");
         ordenar(lista);
         printf("\t Pronto. \n");
-//        imprimir(lista, 0);
+        imprimir(lista, 0);
         printf(" * \n * \n * \n");
         break;
       case 2:
@@ -146,9 +146,12 @@ int main(void) {
           switch(primLetra){
             case 'A':
               empilhar(pilhaA,p -> titulo);
+              break;
+            case 'B':
+              empilhar(pilhaB,p -> titulo);
+              break;
 /*
 */
-              break;
           }
         }
         printf(" * \n * \n * \n");
