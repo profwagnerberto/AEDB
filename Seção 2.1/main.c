@@ -79,16 +79,16 @@ int main(void) {
         lista = inserir(lista, titulo);
         ordenar(lista);
         imprimir(lista, 0);
-        printf(" * \n * \n * \n");
+        printf("\n * \n * \n");
         break;
       case 9:
         printf("============================== \n");
         printf("\t Encerrando... \n");
-        printf(" * \n * \n * \n");
+        printf("\n * \n * \n");
         break;
       default:
         printf("\t Erro: Opção inválida. \n");
-        printf(" * \n * \n * \n");
+        printf("\n * \n * \n");
         break;
     }
   }while(opcao!=9);

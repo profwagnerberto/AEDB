@@ -73,36 +73,32 @@ Pilha* inicializarPilha(Pilha *p, int c){
 
 void empilhar(Pilha *p, char v[20]){
   int i;
+  printf("%d \n",p -> topo);
   p -> topo+=20;
+  printf("%d \n",p -> topo);
+  printf("%s \n",v);
   for(i=0;i<20;i++){
     p -> proxElem [p -> topo] =  v[i];
     p -> topo++;
   }
+/*
+//  *p = 'A';
+  *p -> proxElem = v[0];
+  p+=1;
+  *p -> proxElem = v[1];
+  p-=1;
+*/
 }
 
-void desempilhar(Pilha *p, char ptitulo[20]){
+char desempilhar(Pilha *p, char aux[20]){
   int i;
   for(i=0;i<20;i++){
-    ptitulo[i] = p -> proxElem [p -> topo];
+    aux[i] = p -> proxElem [p -> topo];
     p -> topo++;
   }
   p -> topo-=20;
-  p -> topo-=20;
+  return aux[20];
 }
-
-int estahVazia(Pilha *p){
-  if( p -> topo == -20 )
-    return 1;
-  else
-    return 0;
-}
-
-void liberar(Pilha *p){
-  free(p);
-}
-
-///
-
 
 int main(void) {
   int opcao;
@@ -110,7 +106,6 @@ int main(void) {
   NodoLivro* lista;
   NodoLivro* p;
   char primLetra;
-  Pilha* auxiliar;
   Pilha* pilhaA;
   Pilha* pilhaB;
 
@@ -124,7 +119,6 @@ int main(void) {
     printf("---- \n");
     printf("1 - Remover um livro da prateleira \n");
     printf("2 - Colocar livros em sua pilha específica \n");
-    printf("8 - Listar pilhas de livros.\n");
     printf("9 - Encerrar \n");
     printf("---- \n");
     printf("Informe a opção desejada: ");
@@ -141,7 +135,7 @@ int main(void) {
         ordenar(lista);
         printf("\t Pronto. \n");
         imprimir(lista, 0);
-        printf("\n * \n * \n");
+        printf(" * \n * \n * \n");
         break;
       case 2:
         printf("============================== \n");
@@ -156,41 +150,11 @@ int main(void) {
             case 'B':
               empilhar(pilhaB,p -> titulo);
               break;
+/*
+*/
           }
         }
-        printf("\n * \n * \n");
-        break;
-      case 8:
-        auxiliar = inicializarPilha(auxiliar, 100);
-
-        printf("Pilha de livros A\n");
-        printf("-----------------\n");
-        while(estahVazia(pilhaA)!=1){
-          desempilhar(pilhaA, titulo);
-          printf("%s\n",titulo);
-          empilhar(auxiliar, titulo);
-        }
-        while(estahVazia(auxiliar)!=1){
-          desempilhar(auxiliar, titulo);
-          empilhar(pilhaA,titulo);
-        }
-        printf("===\n");
-
-        printf("Pilha de livros B\n");
-        printf("-----------------\n");
-        while(estahVazia(pilhaB)!=1){
-          desempilhar(pilhaB, titulo);
-          printf("%s\n",titulo);
-          empilhar(auxiliar, titulo);
-        }
-        while(estahVazia(auxiliar)!=1){
-          desempilhar(auxiliar, titulo);
-          empilhar(pilhaB,titulo);
-        }
-        printf("===\n");
-
-        liberar(auxiliar);
-        printf("\n * \n * \n");
+        printf(" * \n * \n * \n");
         break;
       case 9:
         printf("============================== \n");
@@ -198,11 +162,11 @@ int main(void) {
         printf("%s \n",titulo);
 
         printf("\t Encerrando... \n");
-        printf("\n * \n * \n");
+        printf(" * \n * \n * \n");
         break;
       default:
         printf("\t Erro: Opção inválida. \n");
-        printf("\n * \n * \n");
+        printf(" * \n * \n * \n");
         break;
     }
   }while(opcao!=9);
