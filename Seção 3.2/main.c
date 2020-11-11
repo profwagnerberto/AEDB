@@ -102,7 +102,7 @@ int main() {
         printf(" * \n * \n * \n");
         break;
       case 4:
-        for(i=0;i<tamanhoIdade;i++){
+        for(i=0;i<tamanhoIdade;i++)
         tamanhoColuna[0] = tamanhoColuna[1] = tamanhoColuna[2] = 0;
         for(i=0;i<tamanhoIdade;i++){
           endereco = FEDivisao(dadosIdade[i]);
